@@ -21,4 +21,4 @@ remember to run these commands in the shell:
 
 other notes: 
 
-- use Python Tutor if you are having a hard time drawing/figuring out the environment diagrams and frames (instructions on how to use in lab00 README): https://pythontutor.com/composingprograms.html#mode=edit
+- use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=edit) if you are having a hard time drawing/figuring out the environment diagrams and frames (instructions on how to use in lab00 README)
