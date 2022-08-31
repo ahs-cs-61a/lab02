@@ -22,3 +22,4 @@ remember to run these commands in the shell:
 other notes: 
 
 - use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=edit) if you are having a hard time drawing/figuring out the environment diagrams and frames (instructions on how to use in lab00 README)
+- if the assignment page asks you to draw an environment diagram, please actually do it (it's important)
