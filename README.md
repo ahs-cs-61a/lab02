@@ -18,3 +18,7 @@ remember to run these commands in the shell:
 - to install pytest: ```python3 -m pip install pytest```
 - for individual tests: ```python3 -m pytest tests/test.py -k test_name_of_function```
 - for all tests: ```python3 -m pytest tests/test.py```
+
+other notes: 
+
+- use Python Tutor if you are having a hard time drawing/figuring out the environment diagrams and frames (instructions on how to use in lab00 README): https://pythontutor.com/composingprograms.html#mode=edit
