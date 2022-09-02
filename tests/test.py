@@ -60,30 +60,30 @@ def test_match_k():
     assert lab.match_k(2)(123123) == False
 
 def test_product():
-    assert lab.product(3, lab.identity) == 6
-    assert lab.product(5, lab.identity) == 120
-    assert lab.product(3, lab.square) == 36
-    assert lab.product(5, lab.square) == 36
-    assert lab.product(3, lab.increment) == 24
-    assert lab.product(3, lab.triple) == 162
+    assert lab.product(3, identity) == 6
+    assert lab.product(5, identity) == 120
+    assert lab.product(3, square) == 36
+    assert lab.product(5, square) == 14400
+    assert lab.product(3, increment) == 24
+    assert lab.product(3, triple) == 162
 
 def test_summation_using_accumulate():
     assert lab.summation_using_accumulate(5, lab.square) == 55
     assert lab.summation_using_accumulate(5, lab.triple) == 45
 
 def test_product_using_accumulate():
-    assert lab.product_using_accumulate(4, lab.square) == 576
-    assert lab.product_using_accumulate(6, lab.triple) == 524880
+    assert lab.product_using_accumulate(4, square) == 576
+    assert lab.product_using_accumulate(6, triple) == 524880
 
 def test_filtered_accumulate():
     assert lab.filtered_accumulate(add, 0, lambda x: True, 5, lab.identity) == 15
     assert lab.filtered_accumulate(add, 11, lambda x: False, 5, lab.identity) == 11
-    assert lab.filtered_accumulate(add, 0, lab.odd, 5, lab.identity) == 9
-    assert lab.filtered_accumulate(mul, 1, lab.greater_than_5, 5, lab.square) == 3600
+    assert lab.filtered_accumulate(add, 0, odd, 5, lab.identity) == 9
+    assert lab.filtered_accumulate(mul, 1, lab.greater_than_5, 5, square) == 3600
 
 def test_funception():
     assert lab.funception(add_one, 0)(3) == 6
-    assert lab.funcetion(add_one, 1)(4) == 24
+    assert lab.funception(add_one, 1)(4) == 24
     assert lab.funception(add_one, 3)(2) == 4
     assert lab.funception(add_one, -2)(-3) is None
     assert lab.funception(add_one, -1)(4) is None
