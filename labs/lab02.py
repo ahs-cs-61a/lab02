@@ -1,3 +1,5 @@
+from operator import add, mul
+
 # lab02: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
 
 def lambda_curry2(func):
@@ -83,11 +85,41 @@ def composite_identity(f, g): # use composer
     "*** YOUR CODE HERE ***"
 
 
+def cycle(f1, f2, f3):
+    """Returns a function that is itself a higher-order function.
+
+    >>> def add1(x):
+    ...     return x + 1
+    >>> def times2(x):
+    ...     return x * 2
+    >>> def add3(x):
+    ...     return x + 3
+    >>> my_cycle = cycle(add1, times2, add3)
+    >>> identity = my_cycle(0)
+    >>> identity(5)
+    5
+    >>> add_one_then_double = my_cycle(2)
+    >>> add_one_then_double(1)
+    4
+    >>> do_all_functions = my_cycle(3)
+    >>> do_all_functions(2)
+    9
+    >>> do_more_than_a_cycle = my_cycle(4)
+    >>> do_more_than_a_cycle(2)
+    10
+    >>> do_two_cycles = my_cycle(6)
+    >>> do_two_cycles(1)
+    19
+    """
+    "*** YOUR CODE HERE ***"
+
+
+
 # disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
 
 def make_keeper(n):
     """Returns a function which takes one parameter cond and prints
-    out all integers 1..i..n where calling cond(i) returns True.
+    out all integers 1..i..n (exclusive) where calling cond(i) returns True.
 
     >>> def is_even(x):
     ...     # Even numbers have remainder 0 when divided by 2.
@@ -95,6 +127,12 @@ def make_keeper(n):
     >>> make_keeper(5)(is_even)
     2
     4
+    >>> def is_div_by_five(x):
+    ...     return x % 5 == 0
+    >>> make_keeper(16)(is_div_by_five)
+    5
+    10
+    15
     """
     "*** YOUR CODE HERE ***"
 
@@ -121,6 +159,19 @@ def match_k(k):
 
 
 # hw02: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw02/
+
+# used in doctests
+square = lambda x: x * x
+
+identity = lambda x: x
+
+triple = lambda x: 3 * x
+
+increment = lambda x: x + 1
+
+odd = lambda x: x % 2 == 1
+
+greater_than_5 = lambda x: x > 5
 
 def product(n, term):
     """Return the product of the first n terms in a sequence.
@@ -177,12 +228,6 @@ def summation_using_accumulate(n, term): # use accumulate
     55
     >>> summation_using_accumulate(5, triple)
     45
-    >>> # You aren't expected to understand the code of this test.
-    >>> # Check that the bodies of the functions are just return statements.
-    >>> # If this errors, make sure you have removed the "***YOUR CODE HERE***".
-    >>> import inspect, ast
-    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(summation_using_accumulate)).body[0].body]
-    ['Expr', 'Return']
     """
     "*** YOUR CODE HERE ***"
 
@@ -193,12 +238,6 @@ def product_using_accumulate(n, term): # use accumulate
     576
     >>> product_using_accumulate(6, triple)
     524880
-    >>> # You aren't expected to understand the code of this test.
-    >>> # Check that the bodies of the functions are just return statements.
-    >>> # If this errors, make sure you have removed the "***YOUR CODE HERE***".
-    >>> import inspect, ast
-    >>> [type(x).__name__ for x in ast.parse(inspect.getsource(product_using_accumulate)).body[0].body]
-    ['Expr', 'Return']
     """
     "*** YOUR CODE HERE ***"
 
@@ -220,22 +259,11 @@ def filtered_accumulate(merger, start, cond, n, term):
     9
     >>> filtered_accumulate(mul, 1, greater_than_5, 5, square)  # 1 * 9 * 16 * 25
     3600
-    >>> # Do not use while/for loops or recursion
-    >>> from construct_check import check
-    >>> # ban iteration and recursion
-    >>> check(HW_SOURCE_FILE, 'filtered_accumulate', ['While', 'For', 'Recursion'])
-    True
     """
     def merge_if(x, y):
         "*** YOUR CODE HERE ***"
 
     return accumulate(merge_if, start, n, term)
-
-def odd(x): # don't edit function
-    return x % 2 == 1
-
-def greater_than_5(x): # don't edit function
-    return x > 5
 
 
 def funception(func_a, start):
