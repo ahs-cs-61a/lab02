@@ -1,1 +1,1 @@
-from labs.lab01 import *
+from labs.lab02 import *
