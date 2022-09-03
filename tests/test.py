@@ -1,3 +1,5 @@
+# lab02 tests
+
 import labs.lab02 as lab
 from operator import add, mul, mod, sub
 
