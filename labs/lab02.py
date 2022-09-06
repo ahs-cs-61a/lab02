@@ -4,6 +4,7 @@ from operator import add, mul
 
 # lab02: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
 
+
 def lambda_curry2(func):
     """
     Returns a Curried version of a two-argument function FUNC.
@@ -20,7 +21,7 @@ def lambda_curry2(func):
     3
     """
     "*** YOUR CODE HERE ***"
-    return # one liner
+    return  # one liner
 
 
 def count_cond(condition):
@@ -53,7 +54,7 @@ def count_cond(condition):
     "*** YOUR CODE HERE ***"
 
 
-def composer(f, g): # don't edit function
+def composer(f, g):  # don't edit function
     """Return the composition function which given x, computes f(g(x)).
 
     >>> add_one = lambda x: x + 1        # adds one to x
@@ -70,7 +71,8 @@ def composer(f, g): # don't edit function
     """
     return lambda x: f(g(x))
 
-def composite_identity(f, g): # use composer
+
+def composite_identity(f, g):  # use composer
     """
     Return a function with one parameter x that returns True if f(g(x)) is
     equal to g(f(x)). You can assume the result of g(x) is a valid input for f
@@ -116,8 +118,8 @@ def cycle(f1, f2, f3):
     "*** YOUR CODE HERE ***"
 
 
-
 # disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
+
 
 def make_keeper(n):
     """Returns a function which takes one parameter cond and prints
@@ -140,7 +142,7 @@ def make_keeper(n):
 
 
 def match_k(k):
-    """ Return a function that checks if digits k apart match
+    """Return a function that checks if digits k apart match
 
     >>> match_k(2)(1010)
     True
@@ -174,6 +176,7 @@ increment = lambda x: x + 1
 odd = lambda x: x % 2 == 1
 
 greater_than_5 = lambda x: x > 5
+
 
 def product(n, term):
     """Return the product of the first n terms in a sequence.
@@ -223,7 +226,8 @@ def accumulate(merger, start, n, term):
     """
     "*** YOUR CODE HERE ***"
 
-def summation_using_accumulate(n, term): # use accumulate
+
+def summation_using_accumulate(n, term):  # use accumulate
     """Returns the sum: term(0) + ... + term(n), using accumulate.
 
     >>> summation_using_accumulate(5, square)
@@ -233,7 +237,8 @@ def summation_using_accumulate(n, term): # use accumulate
     """
     "*** YOUR CODE HERE ***"
 
-def product_using_accumulate(n, term): # use accumulate
+
+def product_using_accumulate(n, term):  # use accumulate
     """Returns the product: term(1) * ... * term(n), using accumulate.
 
     >>> product_using_accumulate(4, square)
@@ -262,6 +267,7 @@ def filtered_accumulate(merger, start, cond, n, term):
     >>> filtered_accumulate(mul, 1, greater_than_5, 5, square)  # 1 * 9 * 16 * 25
     3600
     """
+
     def merge_if(x, y):
         "*** YOUR CODE HERE ***"
 
@@ -269,7 +275,7 @@ def filtered_accumulate(merger, start, cond, n, term):
 
 
 def funception(func_a, start):
-    """ Takes in a function (function A) and a start value.
+    """Takes in a function (function A) and a start value.
     Returns a function (function B) that will find the product of
     function A applied to the range of numbers from
     start (inclusive) to stop (exclusive)
