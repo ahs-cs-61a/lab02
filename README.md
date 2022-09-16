@@ -13,6 +13,11 @@ lecture slides:
 - HOFs slides: https://docs.google.com/presentation/d/1W7UIXSLwsW19D7uuh_PYTCV9wYaBjhwSEK1fCLPANvI/edit?usp=sharing
 - environment slides: https://docs.google.com/presentation/d/1uJnjgKIXZn6rCuZlm73VBJLWc8laU6ZijMST2grMh1I/edit?usp=sharing
   
+optional lecture recordings:
+  
+- HOFs: https://youtube.com/playlist?list=PLx38hZJ5RLZeBqIUj6ud1Ly-41dpqKX-L
+- environments: https://www.youtube.com/playlist?list=PLx38hZJ5RLZc-ttMv-Gti0T9G80n4rfdF
+  
 reminders:
   
 - make sure your Github lab repository is public to be able to import into Replit
@@ -24,4 +29,3 @@ reminders:
 - use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=display) if you are having trouble drawing/figuring out the environment diagrams
 - refer to lab00 setup description for help
 - everything is run in Shell, not Console!
-
