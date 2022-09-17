@@ -2,10 +2,55 @@
 
 from operator import add, mul
 
+
+# disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
+
+
+def make_keeper(n):  # q1
+    """Returns a function which takes one parameter cond and prints
+    out all integers 1..i..n (exclusive) where calling cond(i) returns True.
+
+    >>> def is_even(x):
+    ...     # Even numbers have remainder 0 when divided by 2.
+    ...     return x % 2 == 0
+    >>> make_keeper(5)(is_even)
+    2
+    4
+    >>> def is_div_by_five(x):
+    ...     return x % 5 == 0
+    >>> make_keeper(16)(is_div_by_five)
+    5
+    10
+    15
+    """
+    "*** YOUR CODE HERE ***"
+
+
+def match_k(k):  # q2
+    """Return a function that checks if digits k apart match
+
+    >>> match_k(2)(1010)
+    True
+    >>> match_k(2)(2010)
+    False
+    >>> match_k(1)(1010)
+    False
+    >>> match_k(1)(1)
+    True
+    >>> match_k(1)(2111111111111111)
+    False
+    >>> match_k(3)(123123)
+    True
+    >>> match_k(2)(123123)
+    False
+    """
+    "***YOUR CODE HERE ***"
+
+
 # lab02: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
 
 
-def lambda_curry2(func): # q1
+def lambda_curry2(func):  # q3
     """
     Returns a Curried version of a two-argument function FUNC.
     >>> from operator import add, mul, mod
@@ -24,7 +69,7 @@ def lambda_curry2(func): # q1
     return  # one liner
 
 
-def count_cond(condition): # q2
+def count_cond(condition):  # q4
     """Returns a function with one parameter N that counts all the numbers from
     1 to N that satisfy the two-argument predicate function Condition, where
     the first argument for Condition is N and the second argument is the
@@ -72,7 +117,7 @@ def composer(f, g):  # don't edit function
     return lambda x: f(g(x))
 
 
-def composite_identity(f, g): # q3, use composer 
+def composite_identity(f, g):  # q5, use composer
     """
     Return a function with one parameter x that returns True if f(g(x)) is
     equal to g(f(x)). You can assume the result of g(x) is a valid input for f
@@ -89,7 +134,7 @@ def composite_identity(f, g): # q3, use composer
     "*** YOUR CODE HERE ***"
 
 
-def cycle(f1, f2, f3): # q4
+def cycle(f1, f2, f3):  # q6
     """Returns a function that is itself a higher-order function.
 
     >>> def add1(x):
@@ -118,50 +163,6 @@ def cycle(f1, f2, f3): # q4
     "*** YOUR CODE HERE ***"
 
 
-# disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
-
-
-def make_keeper(n): # q5
-    """Returns a function which takes one parameter cond and prints
-    out all integers 1..i..n (exclusive) where calling cond(i) returns True.
-
-    >>> def is_even(x):
-    ...     # Even numbers have remainder 0 when divided by 2.
-    ...     return x % 2 == 0
-    >>> make_keeper(5)(is_even)
-    2
-    4
-    >>> def is_div_by_five(x):
-    ...     return x % 5 == 0
-    >>> make_keeper(16)(is_div_by_five)
-    5
-    10
-    15
-    """
-    "*** YOUR CODE HERE ***"
-
-
-def match_k(k): # q6
-    """Return a function that checks if digits k apart match
-
-    >>> match_k(2)(1010)
-    True
-    >>> match_k(2)(2010)
-    False
-    >>> match_k(1)(1010)
-    False
-    >>> match_k(1)(1)
-    True
-    >>> match_k(1)(2111111111111111)
-    False
-    >>> match_k(3)(123123)
-    True
-    >>> match_k(2)(123123)
-    False
-    """
-    "***YOUR CODE HERE ***"
-
-
 # hw02: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw02/
 
 # don't edit used in doctests
@@ -178,7 +179,7 @@ odd = lambda x: x % 2 == 1
 greater_than_5 = lambda x: x > 5
 
 
-def product(n, term): # q7
+def product(n, term):  # q7
     """Return the product of the first n terms in a sequence.
 
     n: a positive integer
@@ -200,7 +201,7 @@ def product(n, term): # q7
     "*** YOUR CODE HERE ***"
 
 
-def accumulate(merger, start, n, term): # q8
+def accumulate(merger, start, n, term):  # q8
     """Return the result of merging the first n terms in a sequence and start.
     The terms to be merged are term(1), term(2), ..., term(n). merger is a
     two-argument commutative function.
@@ -249,7 +250,7 @@ def product_using_accumulate(n, term):  # q10, use accumulate
     "*** YOUR CODE HERE ***"
 
 
-def filtered_accumulate(merger, start, cond, n, term): # q11
+def filtered_accumulate(merger, start, cond, n, term):  # q11
     """Return the result of merging the terms in a sequence of N terms
     that satisfy the condition cond. merger is a two-argument function.
     If v1, v2, ..., vk are the values in term(1), term(2), ..., term(N)
@@ -274,7 +275,7 @@ def filtered_accumulate(merger, start, cond, n, term): # q11
     return accumulate(merge_if, start, n, term)
 
 
-def funception(func_a, start): # q12
+def funception(func_a, start):  # q12
     """Takes in a function (function A) and a start value.
     Returns a function (function B) that will find the product of
     function A applied to the range of numbers from
