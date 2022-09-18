@@ -94,8 +94,8 @@ def wwpd_lambdas(): # wwpd_lambdas
     while x != str(c()):
         x = repeat()
 
+    print("\n", inspect.getsource(square))
     print(">>> d = lambda f: f(4) # They can have functions as arguments as well.")
-    print(inspect.getsource(square))
     print(">>> d(square)")
     x = input()
     while x != str(d(square)):
@@ -166,7 +166,7 @@ def wwpd_lambdas(): # wwpd_lambdas
 
 def wwpd_hofs(): # wwpd_hofs
     intro()
-    print(inspect.getsource(even))
+    print("\n", inspect.getsource(even))
 
     print(">>> steven = lambda x: x")
     print(">>> stewart = even(steven)")
@@ -182,12 +182,12 @@ def wwpd_hofs(): # wwpd_hofs
 
     print(">>> stewart(-4)")
     x = input()
-    while x != str(even(steven()(-4))):
+    while x != str(even(steven)(-4)):
         x = repeat()
 
     
 
-    print(inspect.getsource(cake)) # cake
+    print("\n", inspect.getsource(cake)) # cake
 
     print(">>> chocolate = cake()")
     x = input()
@@ -218,7 +218,7 @@ def wwpd_hofs(): # wwpd_hofs
     while x != "'cake'":
         x = input()
 
-    print(inspect.getsource(snake))
+    print("\n", inspect.getsource(snake))
     print('>>> snake(10, 20)')
     x = input()
     while x != "function":
