@@ -8,6 +8,8 @@ this assignment merges problems from lab01, disc01, and hw01 into one; refer to 
 - disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
 - hw02: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw02/
   
+environment diagrams practice problems: https://docs.google.com/document/d/1ybST4lznR4nkOhE75sRp7hI3YPmnDTAWe_RK_8fMmaw/edit?usp=sharing
+  
 lecture slides: 
   
 - HOFs slides: https://docs.google.com/presentation/d/1W7UIXSLwsW19D7uuh_PYTCV9wYaBjhwSEK1fCLPANvI/edit?usp=sharing
