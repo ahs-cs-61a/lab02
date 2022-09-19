@@ -165,7 +165,7 @@ def cycle(f1, f2, f3):  # q6
 
 # hw02: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw02/
 
-# don't edit used in doctests
+# don't edit, used in doctests
 square = lambda x: x * x
 
 identity = lambda x: x
