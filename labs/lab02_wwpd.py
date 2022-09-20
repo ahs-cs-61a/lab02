@@ -216,7 +216,7 @@ def wwpd_hofs(): # wwpd_hofs
     print(">>> more_chocolate")
     x = input()
     while x != "'cake'":
-        x = input()
+        x = repeat()
 
     print("\n", inspect.getsource(snake))
     print('>>> snake(10, 20)')
