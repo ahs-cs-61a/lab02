@@ -123,7 +123,7 @@ def wwpd_lambdas(): # wwpd_lambdas
     print(">>> f(3)")
     x = input()
     while x != "error":
-        repeat()
+        x = repeat()
 
 
 
