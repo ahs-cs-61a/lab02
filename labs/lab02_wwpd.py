@@ -156,7 +156,7 @@ def wwpd_lambdas(): # wwpd_lambdas
     while x != "1000":
         x = repeat()
 
-    print(">>> out_thousand")
+    print(">>> one_thousand")
     x = input()
     while x != "nothing":
         x = repeat()
