@@ -104,7 +104,7 @@ def wwpd_lambdas(): # wwpd_lambdas
 
 
     print(">>> x = None")
-    print("x")
+    print(">>> x")
     print(">>> lambda x: x")
     x = input()
     while x != "function":
