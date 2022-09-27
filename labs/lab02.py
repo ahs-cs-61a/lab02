@@ -239,7 +239,7 @@ def summation_using_accumulate(n, term):  # q9, use accumulate
     "*** YOUR CODE HERE ***"
 
 
-def product_using_accumulate(n, term):  # q10, use accumulate
+def multiply_using_accumulate(n, term):  # q10, use accumulate
     """Returns the product: term(1) * ... * term(n), using accumulate.
 
     >>> product_using_accumulate(4, square)

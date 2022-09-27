@@ -82,7 +82,7 @@ def test_summation_using_accumulate():
     assert lab.summation_using_accumulate(5, lab.triple) == 45
 
 
-def test_product_using_accumulate():
+def test_multiply_using_accumulate():
     assert lab.product_using_accumulate(4, square) == 576
     assert lab.product_using_accumulate(6, triple) == 524880
 
