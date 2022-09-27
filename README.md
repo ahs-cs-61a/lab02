@@ -24,7 +24,7 @@ reminders:
   
 - make sure your Github lab repository is public to be able to import into Replit
 - to install pytest: ```python3 -m pip install pytest```
-- to import files and packages: ```python -m pip install -e .```
+- to import files and packages: ```python3 -m pip install -e .```
 - to run main.py: ```python3 main.py```
 - for individual tests: ```python3 -m pytest tests/test.py -k test_name_of_function```
 - for all tests: ```python3 -m pytest tests/test.py```
