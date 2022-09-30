@@ -228,29 +228,29 @@ def accumulate(merger, start, n, term):  # q8
     "*** YOUR CODE HERE ***"
 
 
-def summation_using_accumulate(n, term):  # q9, use accumulate
+def add_using_accum(n, term):  # q9, use accumulate
     """Returns the sum: term(0) + ... + term(n), using accumulate.
 
-    >>> summation_using_accumulate(5, square)
+    >>> add_using_accum(5, square)
     55
-    >>> summation_using_accumulate(5, triple)
+    >>> add_using_accum(5, triple)
     45
     """
     "*** YOUR CODE HERE ***"
 
 
-def multiply_using_accumulate(n, term):  # q10, use accumulate
+def multiply_using_accum(n, term):  # q10, use accumulate
     """Returns the product: term(1) * ... * term(n), using accumulate.
 
-    >>> product_using_accumulate(4, square)
+    >>> multiply_using_accum(4, square)
     576
-    >>> product_using_accumulate(6, triple)
+    >>> multiply_using_accum(6, triple)
     524880
     """
     "*** YOUR CODE HERE ***"
 
 
-def filtered_accumulate(merger, start, cond, n, term):  # q11
+def filtered_accum(merger, start, cond, n, term):  # q11
     """Return the result of merging the terms in a sequence of N terms
     that satisfy the condition cond. merger is a two-argument function.
     If v1, v2, ..., vk are the values in term(1), term(2), ..., term(N)

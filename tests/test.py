@@ -77,21 +77,31 @@ def test_product():
     assert lab.product(3, triple) == 162
 
 
-def test_summation_using_accumulate():
-    assert lab.summation_using_accumulate(5, lab.square) == 55
-    assert lab.summation_using_accumulate(5, lab.triple) == 45
+def test_accumulate():
+    assert lab.accumulate(add, 0, 5, identity) == 15
+    assert lab.accumulate(add, 11, 5, identity) == 26
+    assert lab.accumulate(add, 11, 0, identity) == 11
+    assert lab.accumulate(add, 11, 3, square) == 25
+    assert lab.accumulate(mul, 2, 3, square) == 72
+    assert lab.accumulate(lambda x, y: x + y + 1, 2, 3, square) == 19
+    assert lab.accumulate(lambda x, y: 2 * x * y, 2, 3, square) == 576
+    assert lab.accumulate(lambda x, y: (x + y) % 17, 19, 20, square) == 16
+
+def test_add_using_accum():
+    assert lab.add_using_accum(5, square) == 55
+    assert lab.add_using_accum(5, triple) == 45
 
 
-def test_multiply_using_accumulate():
-    assert lab.product_using_accumulate(4, square) == 576
-    assert lab.product_using_accumulate(6, triple) == 524880
+def test_multiply_using_accum():
+    assert lab.multiply_using_accum(4, square) == 576
+    assert lab.multiply_using_accum(6, triple) == 524880
 
 
-def test_filtered_accumulate():
-    assert lab.filtered_accumulate(add, 0, lambda x: True, 5, lab.identity) == 15
-    assert lab.filtered_accumulate(add, 11, lambda x: False, 5, lab.identity) == 11
-    assert lab.filtered_accumulate(add, 0, odd, 5, lab.identity) == 9
-    assert lab.filtered_accumulate(mul, 1, lab.greater_than_5, 5, square) == 3600
+def test_filtered_accum():
+    assert lab.filtered_accum(add, 0, lambda x: True, 5, identity) == 15
+    assert lab.filtered_accum(add, 11, lambda x: False, 5, identity) == 11
+    assert lab.filtered_accum(add, 0, odd, 5, identity) == 9
+    assert lab.filtered_accum(mul, 1, greater_than_5, 5, square) == 3600
 
 
 def test_funception():
