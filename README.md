@@ -25,8 +25,8 @@ reminders:
 - to install pytest: ```python3 -m pip install pytest```
 - to import files and packages: ```python3 -m pip install -e .```
 - to run main.py: ```python3 main.py```
-- for individual tests: ```python3 -m pytest tests/test.py -k test_name_of_function```
-- for all tests: ```python3 -m pytest tests/test.py```
+- for individual tests: ```python3 -m pytest -s tests/test.py -k test_name_of_function```
+- for all tests: ```python3 -m pytest -s tests/test.py```
 - use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=display) if you are having trouble drawing/figuring out the environment diagrams
 - refer to lab00 setup description for help
 - don't forget to push to GitHub and submit turn-in in GradeScope
