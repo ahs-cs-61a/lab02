@@ -61,8 +61,8 @@ def snake(x, y):
     else:
         return x + y
 
-# wwpd questions
 
+# wwpd questions
 
 def wwpd_lambdas(): # wwpd_lambdas
     intro()
