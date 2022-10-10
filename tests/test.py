@@ -54,8 +54,9 @@ def test_cycle():
 
 
 def test_make_keeper():
-    assert lab.make_keeper(5)(is_even) is None
-    assert lab.make_keeper(16)(is_div_by_five) is None
+    print("\n\nmake_keeper prints:")
+    assert lab.make_keeper(5)(is_even) is None  # print, don't return 
+    assert lab.make_keeper(16)(is_div_by_five) is None  # print, don't return 
 
 
 def test_match_k():
