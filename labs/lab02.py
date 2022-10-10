@@ -259,13 +259,13 @@ def filtered_accum(merger, start, cond, n, term):  # q11
     (treating merger as if it were a binary operator, like +). The
     implementation uses accumulate.
 
-    >>> filtered_accumulate(add, 0, lambda x: True, 5, identity)  # 0 + 1 + 2 + 3 + 4 + 5
+    >>> filtered_accum(add, 0, lambda x: True, 5, identity)  # 0 + 1 + 2 + 3 + 4 + 5
     15
-    >>> filtered_accumulate(add, 11, lambda x: False, 5, identity) # 11
+    >>> filtered_accum(add, 11, lambda x: False, 5, identity) # 11
     11
-    >>> filtered_accumulate(add, 0, odd, 5, identity)   # 0 + 1 + 3 + 5
+    >>> filtered_accum(add, 0, odd, 5, identity)   # 0 + 1 + 3 + 5
     9
-    >>> filtered_accumulate(mul, 1, greater_than_5, 5, square)  # 1 * 9 * 16 * 25
+    >>> filtered_accum(mul, 1, greater_than_5, 5, square)  # 1 * 9 * 16 * 25
     3600
     """
 
