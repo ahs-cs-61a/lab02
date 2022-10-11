@@ -16,7 +16,7 @@ class Capturing(list):
         self.extend(self._stringio.getvalue().splitlines())
         del self._stringio
         sys.stdout = self._stdout
-        
+
 
 square = lambda x: x * x
 identity = lambda x: x
@@ -69,8 +69,20 @@ def test_cycle():
 
 
 def test_make_keeper():
-    print("\n\nmake_keeper prints:")
+    print("\n\nmake_keeper(5)(is_even) prints:")
+    with Capturing() as make_keeper_5_even_output:
+        lab.make_keeper(5)(is_even)
+    make_keeper_5_even = ['2', '4']
+    for i in range(len(make_keeper_5_even)):
+        assert make_keeper_5_even[i] == make_keeper_5_even_output[i] # incorrect prints
     assert lab.make_keeper(5)(is_even) is None  # print, don't return 
+
+    print("\n\nmake_keeper(16)(is_div_by_five) prints:")
+    with Capturing() as make_keeper_16_div_output:
+        lab.make_keeper(16)(is_div_by_five)
+    make_keeper_16_div = ['5', '10', '15']
+    for i in range(len(make_keeper_16_div)):
+        assert make_keeper_16_div[i] == make_keeper_16_div_output[i] # incorrect prints   
     assert lab.make_keeper(16)(is_div_by_five) is None  # print, don't return 
 
 
