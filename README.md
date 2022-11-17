@@ -2,10 +2,10 @@
   
 this assignment will be on higher order functions (HOFs) and environments
   
-this assignment merges problems from lab02, disc02, and hw02 into one; refer to these links for problem descriptions and requirements:
+this assignment merges problems from disc02, lab02, and hw02 into one; refer to these links for problem descriptions and requirements:
   
-- lab02: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
 - disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
+- lab02: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
 - hw02: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw02/
   
 environment diagrams practice problems: https://docs.google.com/document/d/1ybST4lznR4nkOhE75sRp7hI3YPmnDTAWe_RK_8fMmaw/edit?usp=sharing
