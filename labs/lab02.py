@@ -1,4 +1,4 @@
-# lab02 - environments & HOFs
+# lab02: HOFs, environments
 
 from operator import add, mul
 
