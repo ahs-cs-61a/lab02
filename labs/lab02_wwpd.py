@@ -140,11 +140,11 @@ lambda_qs = [
     ["", ">>> lambda x: x", "function"],
     [">>> a = lambda x: x # Assigning the lambda function to the name a", ">>> a(5)", str(a(5))],
     ["", ">>> (lambda: 3)()  # Using a lambda expression as an operator in a call exp.", str((lambda: 3)())],
-    [">>> b = lambda x: lambda: x  # Lambdas can return other lambdas!/n>>> c = b(88)", ">>> c", "function"],
+    [">>> b = lambda x: lambda: x  # Lambdas can return other lambdas!\n>>> c = b(88)", ">>> c", "function"],
     ["", ">>> c()", str(c())], 
-    [inspect.getsorce(square) + "\n>>> d = lambda f: f(4) # They can have functions as arguments as well.", ">>> d(square)", str(d(square))], 
+    [inspect.getsource(square) + "\n>>> d = lambda f: f(4) # They can have functions as arguments as well.", ">>> d(square)", str(d(square))], 
     [">>> x = None\n>>> x", ">>> lambda x: x", "function"], 
-    [">>> z = 3\n>>>e = lambda x: lambda y: lambda: x + y + z", ">>> e(0)(1)()", str(e(0)(1)())], 
+    [">>> z = 3\n>>> e = lambda x: lambda y: lambda: x + y + z", ">>> e(0)(1)()", str(e(0)(1)())], 
     [">>> f = lambda z: x + z", ">>> f(3)", "error"], 
     [">>> higher_order_lambda = lambda f: lambda x: f(x)\n>>> g = lambda x: x * x", ">>> higher_order_lambda(2)(g) # Which argument belongs to which function call?", "error"],
     ["", ">>> higher_order_lambda(g)(2)", str(higher_order_lambda(g)(2))], 
@@ -180,5 +180,3 @@ def wwpd_lambdas():
 
 def wwpd_hofs():
     wwpd("HOFs", hofs_qs, st)
-
-wwpd_lambdas()
