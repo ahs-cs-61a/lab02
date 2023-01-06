@@ -1,8 +1,6 @@
-# lab02
+# lab02: Higher Order Functions (HOFs), Environments
   
-this assignment will be on higher order functions (HOFs) and environments
-  
-this assignment merges problems from disc02, lab02, and hw02 into one; refer to these links for problem descriptions and requirements:
+This assignment merges problems from disc02, lab02, and hw02 into one; refer to these links for problem descriptions and requirements:
   
 - disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
 - lab02: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
@@ -27,6 +25,6 @@ reminders:
 - to run main.py: ```python3 main.py```
 - for individual tests: ```python3 -m pytest -s tests/test.py -k test_name_of_function```
 - for all tests: ```python3 -m pytest -s tests/test.py```
-- use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=display) if you are having trouble drawing/figuring out the environment diagrams
+- use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=display) if you are having trouble drawing or figuring out the environment diagrams
 - refer to lab00 setup description for help
 - don't forget to push to GitHub from Codespaces and submit turn-in in GradeScope
