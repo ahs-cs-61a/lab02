@@ -1,12 +1,19 @@
 # lab02 tests
 
+# IMPORTS
+
 import labs.lab02 as lab
+import tests.wwpd_storage as s
 from operator import add, mul, mod, sub
 from io import StringIO 
 import sys
+import git
+
+st = s.wwpd_storage
 
 
-# capturing prints (stdout)
+# CAPTURING PRINTS (STDOUT) - https://stackoverflow.com/questions/16571150/how-to-capture-stdout-output-from-a-python-function-call
+
 class Capturing(list):
     def __enter__(self):
         self._stdout = sys.stdout
@@ -17,6 +24,26 @@ class Capturing(list):
         del self._stringio
         sys.stdout = self._stdout
 
+
+# COLORED PRINTS - custom text type to terminal: https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal, ANSI colors: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
+
+class bcolors:
+    HIGH_MAGENTA = '\u001b[45m'
+    HIGH_GREEN = '\u001b[42m'
+    HIGH_YELLOW = '\u001b[43m'
+    HIGH_RED = '\u001b[41m'
+    HIGH_BLUE = '\u001b[44m'
+    MAGENTA = ' \u001b[35m'
+    GREEN = '\u001b[32m'
+    YELLOW = '\u001b[33m'
+    RED = '\u001b[31m'
+    BLUE = '\u001b[34m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    RESET = '\u001b[0m'
+
+# REFERENCE FUNCTIONS
 
 square = lambda x: x * x
 identity = lambda x: x
@@ -31,6 +58,8 @@ square = lambda x: x**2
 times_two = lambda x: x * 2
 add_three = lambda x: x + 3
 
+
+#TESTS 
 
 def test_lambda_curry2():
     assert lab.lambda_curry2(add)(5)(3) == 8
@@ -73,17 +102,24 @@ def test_make_keeper():
     with Capturing() as make_keeper_5_even_output:
         lab.make_keeper(5)(is_even)
     make_keeper_5_even = ['2', '4']
-    for i in range(len(make_keeper_5_even)):
-        assert make_keeper_5_even[i] == make_keeper_5_even_output[i] # incorrect prints
-    assert lab.make_keeper(5)(is_even) is None  # print, don't return 
+    if make_keeper_5_even != make_keeper_5_even_output:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from make_keeper(5)" + bcolors.ENDC)
+        assert make_keeper_5_even == make_keeper_5_even_output
+    if lab.make_keeper(5)(is_even) is not None:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Print, do not return." + bcolors.ENDC)
+        assert lab.make_keeper(5)(is_even) is None  
+
 
     print("\n\nmake_keeper(16)(is_div_by_five) prints:")
     with Capturing() as make_keeper_16_div_output:
         lab.make_keeper(16)(is_div_by_five)
     make_keeper_16_div = ['5', '10', '15']
-    for i in range(len(make_keeper_16_div)):
-        assert make_keeper_16_div[i] == make_keeper_16_div_output[i] # incorrect prints   
-    assert lab.make_keeper(16)(is_div_by_five) is None  # print, don't return 
+    if make_keeper_16_div != make_keeper_16_div_output:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from make_keeper(16)(is_div_by_five)")
+        assert make_keeper_16_div == make_keeper_16_div_output   
+    if lab.make_keeper(16)(is_div_by_five) is not None:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Print, do not return." + bcolors.ENDC)
+        assert lab.make_keeper(16)(is_div_by_five) is None 
 
 
 def test_match_k():
@@ -138,3 +174,24 @@ def test_funception():
     assert lab.funception(add_one, 3)(2) == 4
     assert lab.funception(add_one, -2)(-3) is None
     assert lab.funception(add_one, -1)(4) is None
+
+# CHECK WWPD? IS ALL COMPLETE
+def test_wwpd():
+    assert len(st) == 26
+
+
+# AUTO-COMMIT WHEN ALL TESTS ARE RAN
+def test_commit():
+    try:
+        # IF CHANGES ARE MADE, COMMIT TO GITHUB
+        user = input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n")
+        repo = git.Repo("/workspaces/lab02-" + user)
+        repo.git.add('--all')
+        repo.git.commit('-m', 'update lab')
+        origin = repo.remote(name='origin')
+        origin.push()
+
+        print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: Lab complete and changes successfully committed." + bcolors.ENDC)
+    except: 
+        # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
+        print(bcolors.HIGH_MAGENTA + bcolors.BOLD + "\nMESSAGE: Already up to date. No updates committed." + bcolors.ENDC)

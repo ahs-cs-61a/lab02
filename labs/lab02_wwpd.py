@@ -40,7 +40,6 @@ def complete():
     print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: All questions for this question set complete." + bcolors.ENDC)
 
 def options():
-
     print(bcolors.HIGH_MAGENTA + bcolors.BOLD + "\nMESSAGE: All questions for this question set complete. Restart question set?" + bcolors.ENDC)
     guess = input("Y/N?\n")
     guess = guess.lower()
