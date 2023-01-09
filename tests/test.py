@@ -1,5 +1,6 @@
 # lab02 tests
 
+
 # IMPORTS
 
 import labs.lab02 as lab
@@ -42,6 +43,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     RESET = '\u001b[0m'
+
 
 # REFERENCE FUNCTIONS
 
@@ -175,12 +177,15 @@ def test_funception():
     assert lab.funception(add_one, -2)(-3) is None
     assert lab.funception(add_one, -1)(4) is None
 
+
 # CHECK WWPD? IS ALL COMPLETE
+
 def test_wwpd():
     assert len(st) == 26
 
 
 # AUTO-COMMIT WHEN ALL TESTS ARE RAN
+
 def test_commit():
     try:
         # IF CHANGES ARE MADE, COMMIT TO GITHUB
@@ -190,7 +195,6 @@ def test_commit():
         repo.git.commit('-m', 'update lab')
         origin = repo.remote(name='origin')
         origin.push()
-
         print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: Lab complete and changes successfully committed." + bcolors.ENDC)
     except: 
         # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB

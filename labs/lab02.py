@@ -1,10 +1,10 @@
 # lab02: HOFs, environments
 
+
 from operator import add, mul
 
 
 # disc02: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc02/
-
 
 def make_keeper(n):  # q1
     """Returns a function which takes one parameter cond and prints
@@ -48,7 +48,6 @@ def match_k(k):  # q2
 
 
 # lab02: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
-
 
 def lambda_curry2(func):  # q3
     """

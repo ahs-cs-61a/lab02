@@ -1,11 +1,13 @@
 # lab02 WWPD?
 
+
 # IMPORTS
 
 import inspect
 import tests.wwpd_storage as s
 
 st = s.wwpd_storage 
+
 
 # COLORED PRINTS - custom text type to terminal: https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal, ANSI colors: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
 
@@ -92,6 +94,8 @@ def wwpd(name, question_set, stored_list):
 
 # REFERENCE FUNCTIONS
 
+# https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
+
 a = lambda x: x
 b = lambda x: lambda: x
 c = b(88)
@@ -152,7 +156,6 @@ lambda_qs = [
     ["", ">>> one_thousand = print_lambda(1000)", "1000"], 
     ["", ">>> one_thousand", "nothing"]
 ]
-    
 lambda_qs = [[i + 1] + lambda_qs[i] + [False] for i in range(len(lambda_qs))]
 
 hofs_qs = [
@@ -168,7 +171,6 @@ hofs_qs = [
     ["\n" + inspect.getsource(snake), ">>> snake(10, 20)", "function"],
     [">>> cake = 'cake'", ">>> snake(10, 20)", "30"]
 ]
-
 hofs_qs = [[i + 1] + hofs_qs[i] + [False] for i in range(len(hofs_qs))] 
 
 
