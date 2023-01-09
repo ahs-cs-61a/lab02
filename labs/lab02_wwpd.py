@@ -132,7 +132,7 @@ def snake(x, y):
         return x + y
 
 
-# QUESTION SET - ELEMENT FORMAT: [<QUESTION #>, <INITIAL PRINTS> (usually empty), <QUESTION>, <ANSWER>, <COMPLETE?>]
+# QUESTION SET - ELEMENT FORMAT: [<INITIAL PRINTS> (usually empty), <QUESTION>, <ANSWER>]
 # INSPECT MODULE - convert function body into String: https://docs.python.org/3/library/inspect.html 
 
 lambda_qs = [
