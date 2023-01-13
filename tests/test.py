@@ -181,7 +181,7 @@ def test_funception():
 # CHECK WWPD? IS ALL COMPLETE
 
 def test_wwpd():
-    assert len(st) == 26
+    assert len(st) == 28
 
 
 # AUTO-COMMIT WHEN ALL TESTS ARE RAN

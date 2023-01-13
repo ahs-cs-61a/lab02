@@ -140,36 +140,37 @@ def snake(x, y):
 # INSPECT MODULE - convert function body into String: https://docs.python.org/3/library/inspect.html 
 
 lambda_qs = [
-    ["", ">>> lambda x: x", "function"],
-    [">>> a = lambda x: x # Assigning the lambda function to the name a", ">>> a(5)", str(a(5))],
-    ["", ">>> (lambda: 3)()  # Using a lambda expression as an operator in a call exp.", str((lambda: 3)())],
-    [">>> b = lambda x: lambda: x  # Lambdas can return other lambdas!\n>>> c = b(88)", ">>> c", "function"],
-    ["", ">>> c()", str(c())], 
-    [inspect.getsource(square) + "\n>>> d = lambda f: f(4) # They can have functions as arguments as well.", ">>> d(square)", str(d(square))], 
-    [">>> x = None\n>>> x", ">>> lambda x: x", "function"], 
-    [">>> z = 3\n>>> e = lambda x: lambda y: lambda: x + y + z", ">>> e(0)(1)()", str(e(0)(1)())], 
-    [">>> f = lambda z: x + z", ">>> f(3)", "error"], 
-    [">>> higher_order_lambda = lambda f: lambda x: f(x)\n>>> g = lambda x: x * x", ">>> higher_order_lambda(2)(g) # Which argument belongs to which function call?", "error"],
-    ["", ">>> higher_order_lambda(g)(2)", str(higher_order_lambda(g)(2))], 
-    [">>> call_thrice = lambda f: lambda x: f(f(f(x)))", ">>> call_thrice(lambda y: y + 1)(0)", str(call_thrice(lambda y: y + 1)(0))], 
-    [">>> print_lambda = lambda z: print(z)  # When is the return expression of a lambda expression executed?", ">>> print_lambda", "function"],
-    ["", ">>> one_thousand = print_lambda(1000)", "1000"], 
-    ["", ">>> one_thousand", "nothing"]
+    [1, "", ">>> lambda x: x", "function"],
+    [2, ">>> a = lambda x: x # Assigning the lambda function to the name a", ">>> a(5)", str(a(5))],
+    [3, "", ">>> (lambda: 3)()  # Using a lambda expression as an operator in a call exp.", str((lambda: 3)())],
+    [4, ">>> b = lambda x: lambda: x  # Lambdas can return other lambdas!\n>>> c = b(88)", ">>> c", "function"],
+    [5, "", ">>> c()", str(c())], 
+    [6, "\n" + inspect.getsource(square) + "\n>>> d = lambda f: f(4) # They can have functions as arguments as well.", ">>> d(square)", str(d(square))], 
+    [7, ">>> x = None\n>>> x", ">>> lambda x: x", "function"], 
+    [8, ">>> z = 3\n>>> e = lambda x: lambda y: lambda: x + y + z", ">>> e(0)(1)()", str(e(0)(1)())], 
+    [9, ">>> f = lambda z: x + z", ">>> f(3)", "error"], 
+    [10, ">>> higher_order_lambda = lambda f: lambda x: f(x)\n>>> g = lambda x: x * x", ">>> higher_order_lambda(2)(g) # Which argument belongs to which function call?", "error"],
+    [11, "", ">>> higher_order_lambda(g)(2)", str(higher_order_lambda(g)(2))], 
+    [12, ">>> call_thrice = lambda f: lambda x: f(f(f(x)))", ">>> call_thrice(lambda y: y + 1)(0)", str(call_thrice(lambda y: y + 1)(0))], 
+    [13, ">>> print_lambda = lambda z: print(z)  # When is the return expression of a lambda expression executed?", ">>> print_lambda", "function"],
+    [14, "", ">>> one_thousand = print_lambda(1000)", "1000"], 
+    [15, "", ">>> one_thousand", "nothing"]
 ]
-lambda_qs = [[i + 1] + lambda_qs[i] + [False] for i in range(len(lambda_qs))]
 
 hofs_qs = [
-    ["\n" + inspect.getsource(even) + ">>> steven = lambda x: x\n>>> stewart = even(steven)", ">>> steward", "function"],
-    ["", ">>> steward(61)", str(even(steven)(61))], 
-    ["", ">>> stewart(-4)", str(even(steven)(-4))],
-    ["\n" + inspect.getsource(cake), ">>> chocolate = cake()", "beets"],
-    ["", ">>> chocolate", "function"],
-    ["", ">>> chocolate()", "sweets"],
-    ["", "", "'cake'"],
-    ["", ">>> more_chocolate, more_cake = chocolate(), cake", "sweets"],
-    ["", ">>> more_chocolate", "'cake'"],
-    ["\n" + inspect.getsource(snake), ">>> snake(10, 20)", "function"],
-    [">>> cake = 'cake'", ">>> snake(10, 20)", "30"]
+    [16, "\n" + inspect.getsource(even) + ">>> steven = lambda x: x\n>>> stewart = even(steven)", ">>> steward", "function"],
+    [17, "", ">>> steward(61)", str(even(steven)(61))], 
+    [18, "", ">>> stewart(-4)", str(even(steven)(-4))],
+    [19, "\n" + inspect.getsource(cake), ">>> chocolate = cake()", "beets"],
+    [20, "", ">>> chocolate", "function"],
+    [21, "", ">>> chocolate()", "sweets"],
+    [22, "", "", "'cake'"],
+    [23, "", ">>> more_chocolate, more_cake = chocolate(), cake", "sweets"],
+    [24, "", ">>> more_chocolate", "'cake'"],
+    [25, "\n" + inspect.getsource(snake), ">>> snake(10, 20)", "function"],
+    [26, "", ">>> snake(10, 20)", "sweets"],
+    [27, "", ">>> snake(10, 20)()", "'cake'"]
+    [28, ">>> cake = 'cake'", ">>> snake(10, 20)", "30"]
 ]
 hofs_qs = [[i + 1] + hofs_qs[i] + [False] for i in range(len(hofs_qs))] 
 
