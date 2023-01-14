@@ -186,11 +186,13 @@ def test_wwpd():
 
 # AUTO-COMMIT WHEN ALL TESTS ARE RAN
 
+user = []
+
 def test_commit():
     try:
         # IF CHANGES ARE MADE, COMMIT TO GITHUB
-        user = input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n")
-        repo = git.Repo("/workspaces/lab02-" + user)
+        user.append(input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n"))
+        repo = git.Repo("/workspaces/lab02-" + user[0])
         repo.git.add('--all')
         repo.git.commit('-m', 'update lab')
         origin = repo.remote(name='origin')
