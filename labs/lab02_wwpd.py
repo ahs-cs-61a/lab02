@@ -59,40 +59,36 @@ def wwpd(name, question_set, stored_list):
 
     intro(name)
 
-    match_elems1 = [[question_set[i][0], question_set[i][2]] for i in range(len(question_set))]
-    match_elems2 = [[stored_list[i][0], stored_list[i][1]] for i in range(len(stored_list))]
-
-    restart = str(match_elems1)[1:-1] in str(match_elems2) and options() == "restart"
-
+    matched = str([i[:-1] for i in question_set])[1:-1] in str([i[:-1] for i in stored_list])
+    restart = matched and options() == "restart"
     done = False
-    for i in question_set:
-        group = [i[0], i[2], i[3], True]
-        if group not in stored_list or restart:
+
+    for q in question_set:
+        q[4] = True
+        if q not in stored_list or restart:
             done = True 
-            if i[1]:
-                print(i[1])
-            if i[2]:
-                print(i[2])
+            if q[1]:
+                print(q[1])
+            if q[2]:
+                print(q[2])
             guess = input()
-            while guess != i[3]:
+            while guess != q[3]:
                 guess = repeat()
-            if str(match_elems1)[1:] not in str(match_elems2):
+            if not matched:
                 op = open("tests/wwpd_storage.py", "w")
-                if not stored_list:
-                    stored_list = [group]
-                else:
-                    for j in range(len(stored_list)):
-                        if group[0] < stored_list[j][0]:
-                            stored_list.insert(j, group)
-                            break
-                    stored_list.append(group)
+                for j in range(len(stored_list)):
+                    if q[0] < stored_list[j][0]:
+                        stored_list.insert(j, q)
+                        break
+                if q not in stored_list: 
+                    stored_list.append(q)
                 op.write("wwpd_storage = " + str(stored_list))
                 op.close()
     if done:
         complete()
 
 
-# REFERENCE FUNCTIONS
+# REFERENCE FUNCTIONS, CLASSES, METHODS, SEQUENCES, ETC.
 
 # https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab02/
 
@@ -136,8 +132,8 @@ def snake(x, y):
         return x + y
 
 
-# QUESTION SET - ELEMENT FORMAT: [<INITIAL PRINTS> (usually empty), <QUESTION>, <ANSWER>]
-# INSPECT MODULE - convert function body into String: https://docs.python.org/3/library/inspect.html 
+# QUESTION SET - ELEMENT FORMAT: [<QUESTION NUMBER>, <INITIAL PRINTS> (usually empty), <QUESTION>, <ANSWER>]
+# INSPECT MODULE - convert function/class body into String: https://docs.python.org/3/library/inspect.html 
 
 lambda_qs = [
     [1, "", ">>> lambda x: x", "function"],
@@ -172,7 +168,12 @@ hofs_qs = [
     [27, "", ">>> snake(10, 20)()", "'cake'"]
     [28, ">>> cake = 'cake'", ">>> snake(10, 20)", "30"]
 ]
-hofs_qs = [[i + 1] + hofs_qs[i] + [False] for i in range(len(hofs_qs))] 
+
+all_qs = [lambda_qs, hofs_qs]
+
+for set in all_qs:
+    for q in set:
+        q.append(False)
 
 
 #WWPD? QUESTIONS

@@ -61,7 +61,7 @@ times_two = lambda x: x * 2
 add_three = lambda x: x + 3
 
 
-#TESTS 
+# TESTS 
 
 def test_lambda_curry2():
     assert lab.lambda_curry2(add)(5)(3) == 8
@@ -181,7 +181,10 @@ def test_funception():
 # CHECK WWPD? IS ALL COMPLETE
 
 def test_wwpd():
+    if len(st) != 28 or not all([i[4] for i in st]):
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: WWPD? incomplete." + bcolors.ENDC)
     assert len(st) == 28
+    assert all([i[4] for i in st])
 
 
 # AUTO-COMMIT WHEN ALL TESTS ARE RAN

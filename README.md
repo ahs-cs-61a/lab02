@@ -28,3 +28,17 @@ reminders:
 - use [Python Tutor](https://pythontutor.com/composingprograms.html#mode=display) if you are having trouble drawing or figuring out the environment diagrams
 - refer to lab00 setup description for help
 - don't forget to push to GitHub from Codespaces and submit turn-in in GradeScope
+  
+test commands: 
+  
+- test_lambda_curry
+- test_count_cond
+- test_composite_identity
+- test_cycle
+- test_make_keeper
+- test_match
+- test_product
+- test_accumulate
+- test_add_using_accum
+- test_multiply_using_accum
+- test_funception
