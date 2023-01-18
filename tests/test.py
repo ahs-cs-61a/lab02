@@ -32,17 +32,22 @@ class bcolors:
     HIGH_MAGENTA = '\u001b[45m'
     HIGH_GREEN = '\u001b[42m'
     HIGH_YELLOW = '\u001b[43m'
-    HIGH_RED = '\u001b[41m'
-    HIGH_BLUE = '\u001b[44m'
     MAGENTA = ' \u001b[35m'
     GREEN = '\u001b[32m'
-    YELLOW = '\u001b[33m'
-    RED = '\u001b[31m'
-    BLUE = '\u001b[34m'
+    YELLOW = '\u001b[33;1m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     RESET = '\u001b[0m'
+    
+def print_error(message):
+    print("\n" + bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR:" + bcolors.RESET + bcolors.YELLOW + bcolors.BOLD + " " + message + bcolors.ENDC)
+
+def print_message(message):
+    print("\n" + bcolors.HIGH_MAGENTA + bcolors.BOLD + "MESSAGE:" + bcolors.RESET + bcolors.MAGENTA + bcolors.BOLD + " " + message + bcolors.ENDC)
+
+def print_success(message):
+    print("\n" + bcolors.HIGH_GREEN + bcolors.BOLD + "SUCCESS:" + bcolors.RESET + bcolors.GREEN + bcolors.BOLD + " " + message + bcolors.ENDC)
 
 
 # REFERENCE FUNCTIONS
@@ -105,11 +110,11 @@ def test_make_keeper():
         lab.make_keeper(5)(is_even)
     make_keeper_5_even = ['2', '4']
     if make_keeper_5_even != make_keeper_5_even_output:
-        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from make_keeper(5)" + bcolors.ENDC)
-        assert make_keeper_5_even == make_keeper_5_even_output
+        print_error("Incorrect prints from make_keeper(5)")
+    assert make_keeper_5_even == make_keeper_5_even_output
     if lab.make_keeper(5)(is_even) is not None:
-        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Print, do not return." + bcolors.ENDC)
-        assert lab.make_keeper(5)(is_even) is None  
+        print_error("Print, do not return.")
+    assert lab.make_keeper(5)(is_even) is None  
 
 
     print("\n\nmake_keeper(16)(is_div_by_five) prints:")
@@ -117,11 +122,11 @@ def test_make_keeper():
         lab.make_keeper(16)(is_div_by_five)
     make_keeper_16_div = ['5', '10', '15']
     if make_keeper_16_div != make_keeper_16_div_output:
-        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from make_keeper(16)(is_div_by_five)")
+        print_error("Incorrect prints from make_keeper(16)(is_div_by_five)")
         assert make_keeper_16_div == make_keeper_16_div_output   
     if lab.make_keeper(16)(is_div_by_five) is not None:
-        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Print, do not return." + bcolors.ENDC)
-        assert lab.make_keeper(16)(is_div_by_five) is None 
+        print_error("Print, do not return.")
+    assert lab.make_keeper(16)(is_div_by_five) is None 
 
 
 def test_match_k():
@@ -180,9 +185,12 @@ def test_funception():
 
 # CHECK WWPD? IS ALL COMPLETE
 
+wwpd_complete = True
+
 def test_wwpd():
     if len(st) != 28 or not all([i[4] for i in st]):
-        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: WWPD? incomplete." + bcolors.ENDC)
+        print_error("WWPD? is incomplete.")
+        wwpd_complete = False
     assert len(st) == 28
     assert all([i[4] for i in st])
 
@@ -200,7 +208,11 @@ def test_commit():
         repo.git.commit('-m', 'update lab')
         origin = repo.remote(name='origin')
         origin.push()
-        print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: Lab complete and changes successfully committed." + bcolors.ENDC)
-    except: 
+        print_success("Changes successfully committed.")  
+    except git.GitCommandError: 
         # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
-        print(bcolors.HIGH_MAGENTA + bcolors.BOLD + "\nMESSAGE: Already up to date. No updates committed." + bcolors.ENDC)
+        print_message("Already up to date. No updates committed.")
+    except git.NoSuchPathError:
+        # IF GITHUB USERNAME IS NOT FOUND
+        print_error("Incorrect GitHub username; try again.")
+        raise git.NoSuchPathError("")
