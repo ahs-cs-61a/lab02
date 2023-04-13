@@ -3,12 +3,10 @@
 
 # IMPORTS
 
-import labs.lab02 as lab
-import tests.wwpd_storage as s
+import labs.lab02 as lab, tests.wwpd_storage as s
+import sys, git
 from operator import add, mul, mod, sub
 from io import StringIO 
-import sys
-import git
 
 st = s.wwpd_storage
 
