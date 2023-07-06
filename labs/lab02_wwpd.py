@@ -170,7 +170,7 @@ hofs_qs = [
     [24, "", ">>> more_chocolate", "'cake'"],
     [25, "\n" + inspect.getsource(snake), ">>> snake(10, 20)", "function"],
     [26, "", ">>> snake(10, 20)", "sweets"],
-    [27, "", ">>> snake(10, 20)()", "'cake'"]
+    [27, "", ">>> snake(10, 20)()", "'cake'"], 
     [28, ">>> cake = 'cake'", ">>> snake(10, 20)", "30"]
 ]
 
